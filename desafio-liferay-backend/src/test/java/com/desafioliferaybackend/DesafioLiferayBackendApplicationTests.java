@@ -32,11 +32,12 @@ class DesafioLiferayBackendApplicationTests {
 	@Test
 	void testCreateTodoFailure() {
 
-		var todo = new Todo("", "", false, 0);
+
 		webTestClient
 				.post()
 				.uri("/todos")
-				.bodyValue(todo).exchange()
+				.bodyValue(new Todo("", "", false, 0))
+				.exchange()
 				.expectStatus().isBadRequest();
 
 
